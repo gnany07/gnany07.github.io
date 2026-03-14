@@ -267,4 +267,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ══════════════════════════════════════════════
+    // MAILTO LINK FALLBACK (COPY TO CLIPBOARD)
+    // ══════════════════════════════════════════════
+    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+            const email = this.getAttribute('href').replace('mailto:', '');
+            navigator.clipboard.writeText(email).then(() => {
+                // If it's the "Say Hello" button, temporarily change text
+                if (this.classList.contains('contact-btn')) {
+                    const originalText = this.innerText;
+                    this.innerText = 'Email Copied!';
+                    setTimeout(() => {
+                        this.innerText = originalText;
+                    }, 2000);
+                }
+            }).catch(err => console.error('Failed to copy email: ', err));
+        });
+    });
+
 });
