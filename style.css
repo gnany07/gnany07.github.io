@@ -534,6 +534,11 @@ section {
     box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
 }
 
+.orbit-dot.dot-bottom {
+    top: auto;
+    bottom: -12px;
+}
+
 .ring-1 .orbit-dot { animation-duration: 12s; }
 .ring-2 .orbit-dot { animation-duration: 18s; animation-direction: reverse; }
 .ring-3 .orbit-dot { animation-duration: 24s; }
